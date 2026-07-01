@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Contract Schema",
+  "description": "Schema for UI Contract files",
+  "type": "object",
+  "required": ["page", "version", "purpose"],
+  "properties": {
+    "page": {
+      "type": "string",
+      "description": "Page or component name",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "description": "Contract version (semver format recommended)",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "purpose": {
+      "type": "string",
+      "description": "Business purpose of this page/component",
+      "minLength": 10
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or team responsible"
+    },
+    "ux_principles": {
+      "type": "array",
+      "description": "UX principles to follow",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation rules",
+      "properties": {
+        "accessibility": {
+          "type": "string",
+          "description": "Accessibility standard (e.g., WCAG-2.1-AA)"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
